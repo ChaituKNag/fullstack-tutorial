@@ -25,6 +25,12 @@ module.exports = {
         me: (parent, args, { dataSources }) =>
             dataSources.userAPI.findOrCreateUser()
     },
+    Mutation: {
+        login: async (_, { email }, { dataSources }) => {
+            const user = await dataSources.userAPI.findOrCreateUser({ email })
+            if (user) return Buffer.from(email).toString('base64')
+        }
+    },
     Mission: {
         missionPatch: (mission, { size = "LARGE" }) => {
             return size === "SMALL"
