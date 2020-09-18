@@ -22,3 +22,5 @@ type ResolverFn = (
 )
 
 export const resolvers = {};
+
+// https://www.apollographql.com/docs/tutorial/local-state/
